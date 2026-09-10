@@ -1,4 +1,5 @@
 """
+divmod() 활용해서 구현하기
 [그리디 알고리즘 - 거스름돈]
 
 문제 설명:
@@ -46,7 +47,11 @@ def make_change_greedy(change, coins):
     # TODO: 각 동전에 대해 반복
     ## 현재 동전으로 거슬러줄 수 있는 개수 계산    
     ## 개수가 0보다 크면 결과에 추가
-    pass
+    for coin in coins:
+        total_coins += change // coin
+        if (change // coin) > 0:
+            result[coin] = change // coin
+        change %= coin
     
     return total_coins, result
 
